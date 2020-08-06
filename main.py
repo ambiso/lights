@@ -132,7 +132,7 @@ def ride_trains(strip, wait_ms=10):
             self.speed += random.uniform(-0.01, 0.01)
             self.speed = min(.9, max(-.9, self.speed))
             self.width += random.uniform(-0.01, 0.01)
-            self.width = min(30, max(10, self.width))
+            self.width = min(60, max(10, self.width))
             self.position += self.speed
             self.position %= len(vstrip)
 
