@@ -1,4 +1,5 @@
 import numpy as np
+from math import exp
 
 def sparkle_brightness(t):
     def _f(t):
