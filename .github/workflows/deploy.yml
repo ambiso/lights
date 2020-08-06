@@ -13,5 +13,6 @@ jobs:
                     echo "${{ secrets.SSH_HOST_KEY }}" >> ~/.ssh/known_hosts
                     ssh-agent -a $SSH_AUTH_SOCK > /dev/null
                     ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}
-                    rsync *.py ${{secrets.SSH_DEPLOY_IP}} -rv
-                    ssh ${{secrets.SSH_DEPLOY_IP}} 'sudo systemctl restart lights.service'"
+                    echo "${{ secrets.SSH_TARGET }}" >> ~/.ssh/config
+                    rsync *.py target:"${{ secrets.SSH_TARGET_DIR }}" -rv
+                    ssh target 'sudo systemctl restart lights.service'"
