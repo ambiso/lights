@@ -15,4 +15,4 @@ jobs:
                     ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
                     echo "${{ secrets.SSH_TARGET }}" >> ~/.ssh/config
                     rsync *.py target:"${{ secrets.SSH_TARGET_DIR }}" -rv
-                    ssh target 'sudo systemctl restart lights.service'"
+                    ssh target "sudo systemctl restart lights.service"
