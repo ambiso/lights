@@ -3,6 +3,9 @@ from math import exp
 
 from neopixel import Color
 
+from .helpers import *
+
+
 def sparkle_brightness(t):
     def _f(t):
         # e^{-\frac{\left(x-10\right)}{17}^{2}}

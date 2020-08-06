@@ -16,6 +16,7 @@ import itertools
 from datetime import datetime
 
 from src.star_light import sparkle
+from src.helpers import *
 
 
 # LED strip configuration:
@@ -231,10 +232,6 @@ def sin_cycle(speed):
     for i in itertools.count():
         yield sin(i*speed/(2*pi))/2+0.5
 
-def fill(strip, color):
-    for i in range(strip.numPixels()):
-        strip.setPixelColor(i, color)
-    strip.show()
 
 def strobe(strip, n=10):
     for i in range(n):
