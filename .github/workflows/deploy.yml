@@ -8,8 +8,9 @@ jobs:
             -   name: Setup SSH Keys and known_hosts
                 env:
                     SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-                run: | # ${{secrets.SSH_DEPLOY_IP}}
+                run: |
                     mkdir -p ~/.ssh
                     echo "${{ secrets.SSH_HOST_KEY }}" >> ~/.ssh/known_hosts
                     ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-                    ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+                    ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}
+                    rsync *.py ${{secrets.SSH_DEPLOY_IP}} -rv"
