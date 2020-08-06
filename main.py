@@ -14,7 +14,7 @@ from math import sin, pi, exp, floor, ceil
 import itertools
 from datetime import datetime
 
-from src.star_light import sparkle
+from .src.star_light import sparkle
 
 
 # LED strip configuration:
