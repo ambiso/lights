@@ -25,7 +25,7 @@ sparkle_cache = np.array([
 
 sparkle_cache /= max(sparkle_cache)
 
-min_sparkle = 15/255
+min_sparkle = 15/100
 sparkle_cache += min_sparkle
 sparkle_cache[-1] = min_sparkle
 sparkle_cache = min(sparkle_cache) + (sparkle_cache - min(sparkle_cache))/(max(sparkle_cache) - min(sparkle_cache)) * (255/255 - min(sparkle_cache))
