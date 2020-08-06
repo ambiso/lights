@@ -14,4 +14,4 @@ jobs:
                     ssh-agent -a $SSH_AUTH_SOCK > /dev/null
                     ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}
                     rsync *.py ${{secrets.SSH_DEPLOY_IP}} -rv
-                    sudo systemctl restart lights.service"
+                    ssh ${{secrets.SSH_DEPLOY_IP}} 'sudo systemctl restart lights.service'"
