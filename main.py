@@ -130,7 +130,7 @@ def ride_trains(strip, wait_ms=10):
                 c = next(self.color_provider)
                 vstrip[i % len(vstrip)].append((c, gauss(i, self.position + self.width/2, self.width / 5)))
             self.speed += random.uniform(-0.01, 0.01)
-            self.speed = min(1.7, max(-1.7, self.speed))
+            self.speed = min(.9, max(-.9, self.speed))
             self.width += random.uniform(-0.01, 0.01)
             self.width = min(30, max(10, self.width))
             self.position += self.speed
