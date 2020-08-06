@@ -333,7 +333,7 @@ if __name__ == '__main__':
         #rainbowCycle(strip, wait_ms=10)
         # left: 46
         #show_left_right()
-        ride_trains(strip, 5)
+        # ride_trains(strip, 5)
         #ride_cycle(strip, 9, const(Color(255,255,255)), 5)
         #broadcast(strip, color_wheel(1000), wait_ms=10)
         #broadcast(strip, linear_diminish([255, 0, 0], 255), wait_ms=500)
@@ -351,6 +351,6 @@ if __name__ == '__main__':
         #broadcast(strip, [Color(0,0,0), Color(255, 255, 255)], wait_ms=[200, 10])
         #stack(strip, cg, 0)
         #strobe(strip)
-        #sparkle(strip)
+        sparkle(strip)
     except KeyboardInterrupt:
         clear(strip)
