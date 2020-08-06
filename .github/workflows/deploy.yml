@@ -5,7 +5,7 @@ jobs:
         steps:
             -   uses: actions/checkout@v2
 
-            -   name: Setup SSH Keys and known_hosts
+            -   name: Deploy
                 env:
                     SSH_AUTH_SOCK: /tmp/ssh_agent.sock
                 run: |
@@ -15,4 +15,3 @@ jobs:
                     ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
                     echo "${{ secrets.SSH_TARGET }}" >> ~/.ssh/config
                     rsync *.py target:"${{ secrets.SSH_TARGET_DIR }}" -rv
-                    ssh target "sudo systemctl restart lights.service"
