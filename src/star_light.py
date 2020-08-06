@@ -25,10 +25,10 @@ sparkle_cache = np.array([
 
 sparkle_cache /= max(sparkle_cache)
 
-min_sparkle = 15/100
+min_sparkle = 15/255
 sparkle_cache += min_sparkle
 sparkle_cache[-1] = min_sparkle
-sparkle_cache = min(sparkle_cache) + (sparkle_cache - min(sparkle_cache))/(max(sparkle_cache) - min(sparkle_cache)) * (255/255 - min(sparkle_cache))
+sparkle_cache = min(sparkle_cache) + (sparkle_cache - min(sparkle_cache))/(max(sparkle_cache) - min(sparkle_cache)) * (100/255 - min(sparkle_cache))
 
 sparkle_cache = [
     Color(*np.array(np.array([50, 50, 255]) * brightness, dtype=np.int).tolist())
