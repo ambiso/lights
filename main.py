@@ -6,7 +6,8 @@
 # various animations on a strip of NeoPixels.
 import time
 
-from neopixel import *
+from neopixel import Adafruit_NeoPixel, Color
+
 import colorsys
 import numpy as np
 import random
