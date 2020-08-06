@@ -1,0 +1,13 @@
+jobs:
+    build:
+        runs-on: ubuntu-18.04
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   name: Setup SSH Keys and known_hosts
+                env:
+                    SSH_AUTH_SOCK: ${{secrets.SSH_DEPLOY_IP}}
+                run: |
+                    mkdir -p ~/.ssh
+                    echo "${{ secrets.SSH_HOST_KEY }}" >> ~/.ssh/known_hosts
+                    ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
