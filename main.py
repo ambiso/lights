@@ -285,9 +285,9 @@ if __name__ == '__main__':
     app = Flask(__name__)
     current_brightness = 1.
 
-    @app.route('/brightness/<brightness>', methods='POST')
-    def set_brightness(brightness):
-        current_brightness = float(brightness)
+    @app.route('/brightness/<float:brightness>', methods='POST')
+    def set_brightness(brightness: float):
+        current_brightness = brightness
 
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
