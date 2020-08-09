@@ -294,7 +294,10 @@ if __name__ == '__main__':
     # Intialize the library (must be called once before other functions).
     strip.begin()
 
-    threading.Thread(target=app.run).start()
+    def run():
+        app.run(host="0.0.0.0", port=80)
+
+    threading.Thread(target=run).start()
     print('Press Ctrl-C to quit.')
     try:
         #rojava(strip)
