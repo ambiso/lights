@@ -288,6 +288,7 @@ if __name__ == '__main__':
 
     @app.route('/brightness/<float:brightness>', methods=['POST'])
     def set_brightness(brightness: float):
+        global current_brightness
         current_brightness = brightness
         return json.dumps({"sucess":True})
 
