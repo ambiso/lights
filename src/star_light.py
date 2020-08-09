@@ -47,15 +47,19 @@ def sparkle(strip, get_current_brightness = lambda: 1.):
 
     while True:
         new_brightness = get_current_brightness()
-        if new_brightness != last_brightness:
-            last_brightness = new_brightness
-            sparkle_cache = make_sparkle_cache(new_brightness)
 
         if len(sparkles) < 75 and random.random() < 0.3:
             pos = random.randint(0, strip.numPixels())
             sparkle = [pos, 0]
             if not any(map(lambda x: x[0] == pos, sparkles)):
                 sparkles.append(sparkle)
+
+        if new_brightness != last_brightness:
+            last_brightness = new_brightness
+            sparkle_cache = make_sparkle_cache(new_brightness)
+            non_sparkles = set(range(strip.numPixels())) - set(a[0] for a in sparkles)
+            for pos in non_sparkles:
+                strip.setPixelColor(pos, sparkle_cache[-1])
 
         for a in sparkles:
             strip.setPixelColor(a[0], sparkle_cache[a[1]])
