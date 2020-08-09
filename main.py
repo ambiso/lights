@@ -271,6 +271,8 @@ def show_n(n):
 LEFT = 44
 RIGHT = 249
 
+BRIGHTNESS = 1.
+
 def show_left_right():
     while True:
         strip.setPixelColor(LEFT, Color(255,255,255))
