@@ -293,7 +293,8 @@ if __name__ == '__main__':
     # Intialize the library (must be called once before other functions).
     strip.begin()
 
-    print ('Press Ctrl-C to quit.')
+    thread.start_new_thread(app.run)
+    print('Press Ctrl-C to quit.')
     try:
         #rojava(strip)
         #rainbowCycle(strip, wait_ms=10)
