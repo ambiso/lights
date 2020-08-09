@@ -5,7 +5,7 @@
 # Direct port of the Arduino NeoPixel library strandtest example.  Showcases
 # various animations on a strip of NeoPixels.
 import time
-import thread
+import threading
 
 from neopixel import *
 
@@ -294,7 +294,7 @@ if __name__ == '__main__':
     # Intialize the library (must be called once before other functions).
     strip.begin()
 
-    thread.start_new_thread(app.run)
+    threading.Thread(target=app.run).start()
     print('Press Ctrl-C to quit.')
     try:
         #rojava(strip)
