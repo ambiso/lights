@@ -282,7 +282,7 @@ def show_left_right():
         strip.show()
 
 if __name__ == '__main__':
-    from flask import Flask
+    from flask import Flask, request, send_from_directory
     app = Flask(__name__)
     current_brightness = 1.
 
@@ -290,7 +290,11 @@ if __name__ == '__main__':
     def set_brightness(brightness: float):
         global current_brightness
         current_brightness = brightness
-        return json.dumps({"sucess":True})
+        return json.dumps({"sucess": True}, separators=(",", ":"))
+
+    @app.route('/')
+    def home():
+        return send_from_directory('static', "index.html")
 
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
