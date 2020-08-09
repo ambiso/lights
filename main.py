@@ -287,7 +287,7 @@ if __name__ == '__main__':
 
     @app.route('/')
     def set_brightness(brightness):
-        current_brightness = brightness
+        current_brightness = float(brightness)
 
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
