@@ -5,6 +5,7 @@
 # Direct port of the Arduino NeoPixel library strandtest example.  Showcases
 # various animations on a strip of NeoPixels.
 import time
+import thread
 
 from neopixel import *
 
