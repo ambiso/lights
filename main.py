@@ -295,7 +295,7 @@ if __name__ == '__main__':
     strip.begin()
 
     def run():
-        app.run(host="0.0.0.0", port=80)
+        app.run(host="0.0.0.0", port=1337)
 
     threading.Thread(target=run).start()
     print('Press Ctrl-C to quit.')
