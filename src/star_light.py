@@ -27,7 +27,7 @@ def make_sparkle_cache(brightness: float):
 
     sparkle_cache /= max(sparkle_cache)
 
-    min_sparkle = brightness * 0.3
+    min_sparkle = brightness * 0.1
     sparkle_cache += min_sparkle
     sparkle_cache[-1] = min_sparkle
     sparkle_cache = min(sparkle_cache) + (sparkle_cache - min(sparkle_cache))/(max(sparkle_cache) - min(sparkle_cache)) * (brightness - min(sparkle_cache))
@@ -38,7 +38,7 @@ def make_sparkle_cache(brightness: float):
     ]
     return sparkle_cache
 
-def sparkle(strip):
+def sparkle(strip, get_current_brightness = lambda: 1.):
     sparkles = [] # (pos, time)
 
     sparkle_cache = make_sparkle_cache(1.)
