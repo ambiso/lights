@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input name="input-brightness" type="range" onchange="change_brightness()">
+  </body>
+  <script>
+    function change_brightness() {
+      let brightness = document.querySelector("input-brightness").value;
+      console.log(`brightness: ${brightness}`);
+      let post = new XMLHttpRequest();
+      post.open("POST", `/brightness/${brightness}`, true);
+      post.send();
+    }
+  </script>
+</html>
