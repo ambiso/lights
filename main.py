@@ -285,7 +285,7 @@ if __name__ == '__main__':
     app = Flask(__name__)
     current_brightness = 1.
 
-    @app.route('/')
+    @app.route('/brightness/<brightness>', methods='POST')
     def set_brightness(brightness):
         current_brightness = float(brightness)
 
