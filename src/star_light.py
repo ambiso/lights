@@ -17,7 +17,7 @@ def sparkle_brightness(t):
     return _f(t) * _g(t)
 
 
-def make_sparkle_cache(brightness):
+def make_sparkle_cache(brightness: float):
     sparkle_cache = np.array([
             sparkle_brightness(t)
             for t in np.arange(0, 50, 1/5)
@@ -30,7 +30,7 @@ def make_sparkle_cache(brightness):
     min_sparkle = 10/255
     sparkle_cache += min_sparkle
     sparkle_cache[-1] = min_sparkle
-    sparkle_cache = min(sparkle_cache) + (sparkle_cache - min(sparkle_cache))/(max(sparkle_cache) - min(sparkle_cache)) * (20/255 - min(sparkle_cache))
+    sparkle_cache = min(sparkle_cache) + (sparkle_cache - min(sparkle_cache))/(max(sparkle_cache) - min(sparkle_cache)) * (brightness - min(sparkle_cache))
 
     sparkle_cache = [
         Color(*np.array(np.array([50, 50, 255]) * brightness, dtype=np.int).tolist())
