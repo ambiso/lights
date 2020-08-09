@@ -312,7 +312,7 @@ if __name__ == '__main__':
     print('Press Ctrl-C to quit.')
     try:
         #rojava(strip)
-        rainbowCycle(strip)
+        # rainbowCycle(strip)
         # left: 46
         #show_left_right()
         # ride_trains(strip, 5)
@@ -333,6 +333,6 @@ if __name__ == '__main__':
         #broadcast(strip, [Color(0,0,0), Color(255, 255, 255)], wait_ms=[200, 10])
         #stack(strip, cg, 0)
         #strobe(strip)
-        # sparkle(strip, get_current_brightness=lambda: current_brightness)
+        sparkle(strip, get_current_brightness=lambda: current_brightness)
     except KeyboardInterrupt:
         clear(strip)
