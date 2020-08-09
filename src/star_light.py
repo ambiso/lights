@@ -41,10 +41,16 @@ def make_sparkle_cache(brightness: float):
 def sparkle(strip, get_current_brightness = lambda: 1.):
     sparkles = [] # (pos, time)
 
-    sparkle_cache = make_sparkle_cache(1.)
+    last_brightness = get_current_brightness()
+    sparkle_cache = make_sparkle_cache(last_brightness)
     fill(strip, sparkle_cache[-1])
 
     while True:
+        new_brightness = get_current_brightness()
+        if new_brightness != last_brightness:
+            last_brightness = new_brightness
+            sparkle_cache = make_sparkle_cache(new_brightness)
+
         if len(sparkles) < 75 and random.random() < 0.3:
             pos = random.randint(0, strip.numPixels())
             sparkle = [pos, 0]

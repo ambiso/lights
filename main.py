@@ -280,6 +280,14 @@ def show_left_right():
         strip.show()
 
 if __name__ == '__main__':
+    from flask import Flask
+    app = Flask(__name__)
+    current_brightness = 1.
+
+    @app.route('/')
+    def set_brightness(brightness):
+        current_brightness = brightness
+
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
     # Intialize the library (must be called once before other functions).
@@ -309,6 +317,6 @@ if __name__ == '__main__':
         #broadcast(strip, [Color(0,0,0), Color(255, 255, 255)], wait_ms=[200, 10])
         #stack(strip, cg, 0)
         #strobe(strip)
-        sparkle(strip)
+        sparkle(strip, get_current_brightness=lambda: current_brightness)
     except KeyboardInterrupt:
         clear(strip)
