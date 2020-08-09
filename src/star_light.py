@@ -57,15 +57,16 @@ def sparkle(strip, get_current_brightness = lambda: 1.):
     sparkles = [] # (pos, time)
 
     n = 100
+    slowness = 10
     last_brightness = get_current_brightness()
     sparkle_cache = make_sparkle_cache(n, last_brightness)
     t = 0
-    fill(strip, sparkle_cache[t][-1])
+    fill(strip, sparkle_cache[t // slowness][-1])
 
     def _rst():
         non_sparkles = set(range(strip.numPixels())) - set(a[0] for a in sparkles)
         for pos in non_sparkles:
-            strip.setPixelColor(pos, sparkle_cache[t][-1])
+            strip.setPixelColor(pos, sparkle_cache[t // slowness][-1])
 
     while True:
         new_brightness = get_current_brightness()
@@ -82,9 +83,9 @@ def sparkle(strip, get_current_brightness = lambda: 1.):
         _rst()
 
         for a in sparkles:
-            strip.setPixelColor(a[0], sparkle_cache[t][a[1]])
+            strip.setPixelColor(a[0], sparkle_cache[t // slowness][a[1]])
             a[1] += 1
         strip.show()
-        sparkles = [[pos, time] for pos, time in sparkles if time < len(sparkle_cache[t])]
+        sparkles = [[pos, time] for pos, time in sparkles if time < len(sparkle_cache[t // slowness])]
         t += 1
-        t %= n
+        t %= n * slowness
