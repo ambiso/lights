@@ -284,7 +284,7 @@ def show_left_right():
 if __name__ == '__main__':
     from flask import Flask, request, send_from_directory
     app = Flask(__name__)
-    current_brightness = 1.0
+    current_brightness = 1.
 
     @app.route('/brightness/<float:brightness>', methods=['POST'])
     def set_brightness(brightness: float):
