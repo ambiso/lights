@@ -8,7 +8,7 @@
       let brightness = document.querySelector(".input-brightness").value;
       console.log(`brightness: ${brightness}`);
       let post = new XMLHttpRequest();
-      post.open("POST", `/brightness/${brightness}`, true);
+      post.open("POST", `/brightness/${brightness/100}`, true);
       post.send();
     }
   </script>
