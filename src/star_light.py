@@ -79,7 +79,7 @@ def sparkle(strip, get_current_brightness = lambda: 1.):
         if new_brightness != last_brightness:
             last_brightness = new_brightness
             sparkle_cache = make_sparkle_cache(n, new_brightness)
-            _rst()
+        _rst()
 
         for a in sparkles:
             strip.setPixelColor(a[0], sparkle_cache[t][a[1]])
