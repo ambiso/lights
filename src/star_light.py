@@ -36,6 +36,7 @@ def make_sparkle_cache(brightness: float):
         Color(*np.array(np.array([50, 50, 255]) * brightness, dtype=np.int).tolist())
         for brightness in sparkle_cache
     ]
+    return sparkle_cache
 
 def sparkle(strip):
     sparkles = [] # (pos, time)
