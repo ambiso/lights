@@ -1,4 +1,5 @@
 import json
+import os
 
 from flask import Flask, request, send_from_directory
 
@@ -8,7 +9,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return send_from_directory('static', "index.html")
+    print(os.getcwd())
+    return send_from_directory('../static', "index.html")
 
 @app.route('/brightness/<brightness>', methods=['POST'])
 def set_brightness(brightness):
