@@ -78,6 +78,7 @@ def sparkle(strip, get_current_brightness = lambda: 1.):
                 sparkles.append(sparkle)
 
         if new_brightness != last_brightness:
+            print('brightness changed')
             last_brightness = new_brightness
             sparkle_cache = make_sparkle_cache(n, new_brightness)
         if n % slowness == 0:
