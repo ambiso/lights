@@ -43,37 +43,6 @@ def broadcast(strip, color_provider, wait_ms=10):
       time.sleep(wait_time/1000.0)
 
 
-class ColorGen:
-  def __init__(self):
-    self.hue_provider = const(0)
-    self.saturation_provider = const(1)
-    self.value_provider = const(1)
-
-  def hue(self, provider):
-    self.hue_provider = provider
-
-  def saturation(self, provider):
-    self.saturation_provider = provider
-
-  def value(self, provider):
-    self.value_provider = provider
-
-  def __iter__(self):
-    return self
-
-  def __next__(self):
-    col = np.array(colorsys.hsv_to_rgb(
-      next(self.hue_provider),
-      next(self.saturation_provider),
-      next(self.value_provider),
-      ))
-    col = np.array(col*255, dtype=np.int).tolist()
-    return Color(*col)
-
-
-
-
-
 if __name__ == '__main__':
   # Create NeoPixel object with appropriate configuration.
   strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
