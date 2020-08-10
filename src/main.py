@@ -28,8 +28,8 @@ LED_STRIP      = ws.WS2811_STRIP_GRB
 
 
 
+current_brightness = 1.
 if __name__ == '__main__':
-    current_brightness = 1.
 
 
     # Create NeoPixel object with appropriate configuration.
