@@ -15,6 +15,8 @@ from src.helpers import *
 from src import animations
 
 
+
+
 # LED strip configuration:
 LED_COUNT      = 300     # Number of LED pixels.
 LED_PIN        = 10      # GPIO pin connected to the pixels (must support PWM!).
@@ -37,7 +39,7 @@ def run():
     print('Press Ctrl-C to quit.')
     try:
         # if curr_animation == 'sparkle':
-        animation[curr_animation](strip, get_current_brightness=lambda: current_brightness)
+        animations[curr_animation](strip, get_current_brightness=lambda: current_brightness)
         # sparkle(strip, get_current_brightness=lambda: current_brightness)
     except KeyboardInterrupt:
         clear(strip)
