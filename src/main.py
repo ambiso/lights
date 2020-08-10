@@ -39,7 +39,7 @@ def run():
     print('Press Ctrl-C to quit.')
     try:
         # if curr_animation == 'sparkle':
-        animations[curr_animation](strip, get_current_brightness=lambda: current_brightness)
+        animations[curr_animation]['fn'](strip, get_current_brightness=lambda: current_brightness)
         # sparkle(strip, get_current_brightness=lambda: current_brightness)
     except KeyboardInterrupt:
         clear(strip)
