@@ -57,7 +57,7 @@ def sparkle(strip, get_current_brightness = lambda: 1.):
     sparkles = [] # (pos, time)
 
     n = 1000
-    slowness = 100
+    slowness = 1
     last_brightness = get_current_brightness()
     sparkle_cache = make_sparkle_cache(n, last_brightness)
     t = 0
