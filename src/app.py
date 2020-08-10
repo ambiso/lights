@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     print(os.getcwd(), file=sys.stderr)
-    return send_from_directory('../static', "index.html")
+    return send_from_directory('static', "index.html")
 
 @app.route('/brightness/<brightness>', methods=['POST'])
 def set_brightness(brightness):
