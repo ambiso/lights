@@ -12,6 +12,7 @@ from datetime import datetime
 from src import app
 from src.star_light import sparkle
 from src.helpers import *
+from src import animations
 
 
 # LED strip configuration:
@@ -26,18 +27,17 @@ LED_STRIP      = ws.WS2811_STRIP_GRB
 #LED_STRIP      = ws.SK6812W_STRIP
 
 
-
-
 current_brightness = 1.
+curr_animation = 'sparkle'
 def run():
-    # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
-    # Intialize the library (must be called once before other functions).
     strip.begin()
 
     threading.Thread(target=app.run).start()
     print('Press Ctrl-C to quit.')
     try:
-        sparkle(strip, get_current_brightness=lambda: current_brightness)
+        # if curr_animation == 'sparkle':
+        animation[curr_animation](strip, get_current_brightness=lambda: current_brightness)
+        # sparkle(strip, get_current_brightness=lambda: current_brightness)
     except KeyboardInterrupt:
         clear(strip)
