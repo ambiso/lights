@@ -9,7 +9,7 @@ import random
 from math import sin, pi, exp, floor, ceil
 from datetime import datetime
 
-from app import run
+import app
 from src.star_light import sparkle
 from src.helpers import *
 
@@ -37,7 +37,7 @@ if __name__ == '__main__':
     # Intialize the library (must be called once before other functions).
     strip.begin()
 
-    threading.Thread(target=run).start()
+    threading.Thread(target=app.run).start()
     print('Press Ctrl-C to quit.')
     try:
         sparkle(strip, get_current_brightness=lambda: current_brightness)
