@@ -44,25 +44,35 @@ def broadcast(strip, color_provider, wait_ms=10):
 
 
 if __name__ == '__main__':
-  # Create NeoPixel object with appropriate configuration.
-  strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
-  # Intialize the library (must be called once before other functions).
-  strip.begin()
-  strip.setPixelColor()
+    from flask import Flask, request, send_from_directory
+    app = Flask(__name__)
+    current_brightness = 1.
 
-  print ('Press Ctrl-C to quit.')
-  try:
-    #ride_cycle(strip, 9, const(Color(255,255,255)), 5)
-    #broadcast(strip, color_wheel(1000), wait_ms=10)
-    #broadcast(strip, linear_diminish([255, 0, 0], 255), wait_ms=500)
-    #broadcast(strip, sin_value(0, 1/100), wait_ms=0)
-    #broadcast(strip, [Color(0,0,0), Color(255, 255, 255)], wait_ms=[200, 10])
-    #stack(strip, color_wheel(strip.numPixels()), 0)
-    #stack(strip, const(Color(255,255,255)), 0)
-    #stack(strip, random_color(), 0)
-    #stack(strip, cg, 0)
-    #nightrider(strip, 8, const(Color(255,0,0)), 5, 5)
-    #strobe(strip)
-    sparkle(strip)
-  except KeyboardInterrupt:
-    clear(strip)
+    @app.route('/brightness/<brightness>', methods=['POST'])
+    def set_brightness(brightness):
+        global current_brightness
+        b = float(brightness)
+        if 0. < b < 1.:
+            current_brightness = b
+            return json.dumps({"sucess": True, "brightness": b}, separators=(",", ":"))
+        else:
+            return json.dumps({"sucess": False})
+
+    @app.route('/')
+    def home():
+        return send_from_directory('static', "index.html")
+
+    # Create NeoPixel object with appropriate configuration.
+    strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
+    # Intialize the library (must be called once before other functions).
+    strip.begin()
+
+    def run():
+        app.run(host="0.0.0.0", port=1337)
+
+    threading.Thread(target=run).start()
+    print('Press Ctrl-C to quit.')
+    try:
+        sparkle(strip, get_current_brightness=lambda: current_brightness)
+    except KeyboardInterrupt:
+        clear(strip)
