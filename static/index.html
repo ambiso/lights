@@ -19,9 +19,9 @@
 
     async function change_animation() {
       let e = document.getElementById("animation");
-      let animation = e.option\s[e.selectedIndex].value;
+      let animation = e.options[e.selectedIndex].value;
       console.log(`animation: ${animation}`);
-      // let res = fetch(`/animation/animation`, { method: 'POST' })
+      let res = fetch(`/animation/animation`, { method: 'POST' })
     }
   </script>
 </html>
