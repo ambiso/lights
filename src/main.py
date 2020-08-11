@@ -48,7 +48,7 @@ def run():
 			next(gen)
 			print(round(time.perf_counter() - t0, 4))
 			# t1 = time.perf_counter()
-			pixels = getPixels()
+			pixels = getPixels(strip)
 			# print(round(time.perf_counter() - t1, 4))
 			
 			# print(dir(strip.getPixels()))
