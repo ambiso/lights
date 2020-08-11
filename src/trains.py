@@ -5,6 +5,9 @@ import numpy as np
 
 from .helpers import gen_color_map
 
+LEFT = 44
+RIGHT = 249
+
 def cycle_01(x, delta):
   while True:
     x += delta
