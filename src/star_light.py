@@ -62,7 +62,7 @@ def sparkle(strip):
 		if random.random() < 0.3:
 
 			all_sparkles = set(range(strip.numPixels()))
-			no_sparkles = set(a[0] + d for a in sparkles for d in range(-min_distance, min_distance))
+			no_sparkles = set(a[0] + d for a in sparkles for d in range(-min_distance, min_distance + 1))
 
 			possible_locations = all_sparkles - no_sparkles
 
