@@ -37,15 +37,14 @@ def ride_trains(strip):
       for i in range(floor(self.position), ceil(self.position + self.width)):
         c = next(self.color_provider)
         vstrip[i % len(vstrip)].append((c, gauss(i, self.position + self.width/2, self.width / 5)))
-      #self.speed += random.uniform(-0.01, 0.01)
-      #self.speed = min(.9, max(-.9, self.speed))
-      self.speed += random.uniform(0.01, 0.02)
+      self.speed += random.uniform(-0.01, 0.01)
+      self.speed = min(.9, max(-.9, self.speed))
       self.width += random.uniform(-0.01, 0.01)
       self.width = min(60, max(10, self.width))
       self.position += self.speed
       self.position %= len(vstrip)
 
-  trains = [Train() for _ in range(1)]
+  trains = [Train() for _ in range(8)]
   #strobe_counter = datetime.now()
   #interval = 0
   while True:
