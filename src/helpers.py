@@ -3,7 +3,7 @@ import numpy as np
 import colorsys
 
 
-from neopixel import Color
+from rpi_ws281x import Color
 
 def fill(strip, color):
   for i in range(strip.numPixels()):

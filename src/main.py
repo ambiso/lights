@@ -1,7 +1,7 @@
 import time
 import threading
 
-from neopixel import *
+from rpi_ws281x import *
 
 import random
 from math import sin, pi, exp, floor, ceil

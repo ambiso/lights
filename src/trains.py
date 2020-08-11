@@ -2,7 +2,7 @@ import random
 from math import sin, pi, exp, floor, ceil
 
 import numpy as np
-from neopixel import *
+from rpi_ws281x import *
 
 
 from .helpers import gen_color_map
