@@ -60,14 +60,9 @@ def ride_trains(strip, null=None):
         col = [color_map[floor(hue * (len(color_map)-1))][floor(val * (len(color_map)-1))] for (hue, val) in colors]
         col = np.sum(col, axis=0)
         col = np.array(col, dtype=np.int).tolist()
-        print(col)
-        for i in range(len(col)):
-          col[i] = min(col[i], 255)
-        print(col)
-        print(type(col))
-        print(type(col[0]))
+        for j in range(len(col)):
+          col[j] = min(col[j], 255)
         color = Color(*col)
-        print(color)
         strip.setPixelColor(i + LEFT, color)
     strip.show()
 
