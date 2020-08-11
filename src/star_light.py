@@ -59,7 +59,6 @@ def sparkle(strip):
 	while True:
 
 		if len(sparkles) < 200 and random.random() < 0.9:
-			sparkle = [pos, 0]
 
 			all_sparkles = set(range(strip.numPixels()))
 			live_sparkles = set(a[0] + d for a in sparkles for d in range(-1, 2))
@@ -68,9 +67,9 @@ def sparkle(strip):
 			print(possible_locations)
 
 			pos = random.choice(possible_locations)
-			sparkles.append(sparkle)
+			sparkle = [pos, 0]
 
-					
+			sparkles.append(sparkle)
 
 		#if n % slowness == 0:
 			#_rst()
