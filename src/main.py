@@ -1,11 +1,12 @@
 import threading
 
 
-from rpi_ws281x import Adafruit_NeoPixel, clear
+from rpi_ws281x import Adafruit_NeoPixel
 
 from src import app
 from src import animations
 
+from src.helpers import clear
 
 # LED strip configuration:
 LED_COUNT      = 300     # Number of LED pixels.
