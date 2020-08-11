@@ -56,7 +56,7 @@ def sparkle(strip):
 		for pos in non_sparkles:
 			strip.setPixelColor(pos, sparkle_cache[t // slowness][-1])
 
-	min_distance = 2
+	min_distance = 5
 	while True:
 
 		if random.random() < 0.4:
