@@ -50,7 +50,6 @@ def run():
 			pixels = getPixels(strip)
 			print(round(time.perf_counter() - t0, 4))
 			print(pixels)
-			
 	except KeyboardInterrupt:
 		clear(strip)
 
