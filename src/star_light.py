@@ -28,7 +28,7 @@ def make_sparkle_cache(n):
 
 		sparkle_cache /= max(sparkle_cache)
 
-		min_brightness = 50/255
+		min_brightness = 20/255
 		sparkle_cache += min_brightness
 		sparkle_cache[-1] = min_brightness
 		sparkle_cache = min(sparkle_cache) + (sparkle_cache - min(sparkle_cache))/(max(sparkle_cache) - min(sparkle_cache)) * (1. - min(sparkle_cache))
