@@ -1,14 +1,8 @@
-import time
 import threading
 
-from rpi_ws281x import *
-
-import random
-from math import sin, pi, exp, floor, ceil
-from datetime import datetime
+from rpi_ws281x import Adafruit_NeoPixel, clear
 
 from src import app
-from src.helpers import *
 from src import animations
 
 
