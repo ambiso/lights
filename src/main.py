@@ -46,10 +46,8 @@ def run():
 			
 			next(gen)
 			
-			t0 = time.perf_counter()
 			pixels = getPixels(strip)
-			print(round(time.perf_counter() - t0, 4))
-			
+			print(pixels)
 			# print(dir(strip.getPixels()))
 	except KeyboardInterrupt:
 		clear(strip)
