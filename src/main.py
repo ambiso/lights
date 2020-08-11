@@ -1,12 +1,12 @@
 import threading
+import time
 
-
-from rpi_ws281x import Adafruit_NeoPixel, ws
+from rpi_ws281x import PixelStrip, ws
 
 from src import app
 from src import animations
 
-from src.helpers import clear
+from src.helpers import clear, getPixels
 
 # LED strip configuration:
 LED_COUNT      = 300     # Number of LED pixels.
@@ -25,7 +25,7 @@ curr_animation = 'sparkle'
 def run():
 	prev_animation = None
 	prev_brightness = None
-	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
+	strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
 	strip.begin()
 
 	threading.Thread(target=app.run).start()
@@ -43,7 +43,17 @@ def run():
 				strip.setBrightness(curr_brightness)
 				prev_brightness = curr_brightness
 				
+			
+			t0 = time.perf_counter()
 			next(gen)
+			print(round(time.perf_counter() - t0, 4))
+			# t1 = time.perf_counter()
+			pixels = getPixels()
+			# print(round(time.perf_counter() - t1, 4))
+			
 			# print(dir(strip.getPixels()))
 	except KeyboardInterrupt:
 		clear(strip)
+
+
+		
