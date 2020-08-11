@@ -21,7 +21,7 @@
       let e = document.getElementById("animation");
       let animation = e.options[e.selectedIndex].value;
       console.log(`animation: ${animation}`);
-      let res = fetch(`/animation/animation`, { method: 'POST' })
+      let res = fetch(`/animation/${animation}`, { method: 'POST' })
     }
   </script>
 </html>
