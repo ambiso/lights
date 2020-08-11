@@ -1,5 +1,5 @@
 import random
-from math import exp
+from math import sin, pi, exp, floor, ceil
 
 import numpy as np
 
