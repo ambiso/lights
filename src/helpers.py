@@ -2,6 +2,8 @@ import itertools
 import numpy as np
 import colorsys
 
+from rpi_ws281x import Color
+
 
 from rpi_ws281x import Color
 
