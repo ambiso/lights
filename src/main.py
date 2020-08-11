@@ -48,8 +48,8 @@ def run():
 			
 			t0 = time.perf_counter()
 			pixels = getPixels(strip)
-			print(round(time.perf_counter() - t0, 4))
-			print(pixels)
+			# print(round(time.perf_counter() - t0, 4))
+			# print(pixels)
 	except KeyboardInterrupt:
 		clear(strip)
 
