@@ -1,3 +1,5 @@
+import time
+
 from rpi_ws281x import Color
 
 from .helpers import clear, fill
