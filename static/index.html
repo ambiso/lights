@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <input class="input-brightness" type="range" oninput="change_brightness()">
-    
-    <select name="animation" id="animation">
-      <option value="sparkle">sparkle</option>
-      <option value="trains">trains</option>
-      <option value="strobe">strobe</option>
-    </select>
 
-  </body>
-  <script>
-    async function change_brightness() {
-      let brightness = document.querySelector(".input-brightness").value;
-      console.log(`brightness: ${brightness}`);
-      let res = fetch(`/brightness/${brightness / 100}`, {method: 'POST'});
-    }
+<body>
+  <input class="input-brightness" type="range" oninput="change_brightness()">
+</body>
+<script>
+  function change_brightness() {
+    let brightness = document.querySelector(".input-brightness").value;
+    console.log(`brightness: ${brightness}`);
+    let post = new XMLHttpRequest();
+    post.open("POST", `/brightness/${brightness / 100}`, true);
+    post.send();
+  }
+</script>
 
-    async function change_animation() {
-      let e = document.getElementById("animation");
-      let animation = e.options[e.selectedIndex].value;
-      console.log(`animation: ${animation}`);
-      // let res = fetch(`/animation/animation`, { method: 'POST' })
-    }
-  </script>
 </html>
