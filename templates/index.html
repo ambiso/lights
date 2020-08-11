@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<input class="input-brightness" type="range" oninput="change_brightness()">
+
+	<select name="animation" id="animation" onchange="change_animation()">
+		<option value="sparkle">sparkle</option>
+		<option value="trains">trains</option>
+		<!-- <option value="strobe">strobe</option> -->
+	</select>
+
+</body>
+<script type=text/javascript src="{{
+	url_for('static', filename='js/main.js') }}">
+</script>
+
+</html>

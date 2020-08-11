@@ -7,6 +7,7 @@ name = "pypi"
 rpi-ws281x = "*"
 adafruit-circuitpython-neopixel = "*"
 numpy = "*"
+flask = "*"
 
 [dev-packages]
 

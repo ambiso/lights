@@ -25,7 +25,7 @@ LED_STRIP      = ws.WS2811_STRIP_GRB
 #LED_STRIP      = ws.SK6812W_STRIP
 
 
-current_brightness = 0.2
+curr_brightness = 0.2
 curr_animation = 'trains'
 def run():
 	prev_animation = None
@@ -44,9 +44,9 @@ def run():
 				prev_animation = curr_animation
 				clear(strip)
 				gen = fn(strip)
-			if current_brightness != prev_brightness:
-				strip.setBrightness(int(255 * current_brightness))
-				prev_brightness = current_brightness
+			if curr_brightness != prev_brightness:
+				strip.setBrightness(int(255 * curr_brightness))
+				prev_brightness = curr_brightness
 				
 			next(gen)
 		# sparkle(strip, get_current_brightness=lambda: current_brightness)
