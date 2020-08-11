@@ -59,7 +59,6 @@ def sparkle(strip):
 	while True:
 
 		if len(sparkles) < 200 and random.random() < 0.9:
-			pos = random.randint(0, strip.numPixels())
 			sparkle = [pos, 0]
 
 			all_sparkles = set(range(strip.numPixels()))
@@ -68,9 +67,8 @@ def sparkle(strip):
 			possible_locations = all_sparkles - live_sparkles
 			print(possible_locations)
 
-			if not any(map(lambda x: x[0] == pos, sparkles)):
-				if pos not in possible_locations:
-					sparkles.append(sparkle)
+			pos = random.choice(possible_locations)
+			sparkles.append(sparkle)
 
 					
 
