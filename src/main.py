@@ -32,7 +32,7 @@ LED_STRIP      = ws.WS2811_STRIP_GRB
 current_brightness = 1.
 curr_animation = 'sparkle'
 def run():
-	prev_animation = 'sparkle'
+	prev_animation = None
 	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
 	strip.begin()
 
