@@ -61,7 +61,7 @@ def getPixels(strip: PixelStrip):
   num_pixels = strip.numPixels()
   all_pixels = []
   for i in range(num_pixels):
-    color = strip.getPixelColorRGB(i)
-    all_pixels.append(color)
+    c = strip.getPixelColorRGB(i)
+    all_pixels.append((c.r, c.g, c.b))
 
   return all_pixels
