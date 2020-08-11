@@ -13,5 +13,9 @@ animations = {
 
         }
     },
-    'trains': ride_trains
+    'trains': {
+        'fn': ride_trains,
+        'params': {
+
+        }
 }
