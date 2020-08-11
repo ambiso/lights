@@ -66,10 +66,9 @@ def sparkle(strip):
 			possible_locations = all_sparkles - live_sparkles
 			print(possible_locations)
 
-			pos = random.choice(list(possible_locations))
-			sparkle = [pos, 0]
-
-			sparkles.append(sparkle)
+			if possible_locations:
+				sparkle = [random.choice(list(possible_locations)), 0]
+				sparkles.append(sparkle)
 
 		#if n % slowness == 0:
 			#_rst()
