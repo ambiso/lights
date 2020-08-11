@@ -7,7 +7,7 @@ from src import app
 from src import curr_animations
 
 from src.helpers import clear, getPixels
-from .sparkle import sparkle
+from .star_light import sparkle
 
 # LED strip configuration:
 LED_COUNT      = 300     # Number of LED pixels.
