@@ -15,8 +15,8 @@ def home():
 
 @app.route('/brightness/<brightness>', methods=['POST'])
 def set_brightness(brightness):
-    b = float(brightness)
-    if 0. < b < 1.:
+    b = int(brightness)
+    if 0 < b < 255:
         main.curr_brightness = b
         return json.dumps({"sucess": True, "brightness": b}, separators=(",", ":"))
     else:

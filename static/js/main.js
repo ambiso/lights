@@ -1,7 +1,7 @@
 async function change_brightness() {
 	let brightness = document.querySelector(".input-brightness").value;
 	console.log(`brightness: ${brightness}`);
-	let res = await fetch(`/brightness/${brightness / 100}`, { method: 'POST' });
+	let res = await fetch(`/brightness/${brightness}`, { method: 'POST' });
 	console.log(res.json());
 }
 

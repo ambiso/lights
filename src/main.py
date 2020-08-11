@@ -25,7 +25,7 @@ LED_STRIP      = ws.WS2811_STRIP_GRB
 #LED_STRIP      = ws.SK6812W_STRIP
 
 
-curr_brightness = 0.2
+curr_brightness = int(0.2 * 255)
 curr_animation = 'trains'
 def run():
 	prev_animation = None
@@ -45,7 +45,7 @@ def run():
 				clear(strip)
 				gen = fn(strip)
 			if curr_brightness != prev_brightness:
-				strip.setBrightness(int(255 * curr_brightness))
+				strip.setBrightness(curr_brightness)
 				prev_brightness = curr_brightness
 				
 			next(gen)
