@@ -40,15 +40,16 @@ def run():
 	print('Press Ctrl-C to quit.')
 	try:
 		while True:
-			fn = animations[curr_animation]['fn']
-			# params = animations[curr_animation]['params']
-			params = None
-			if curr_animation == 'sparkle':
-				params = lambda: current_brightness
 
 			if curr_animation  != prev_animation:
+				fn = animations[curr_animation]['fn']
+				# params = animations[curr_animation]['params']
+				params = None
+				if curr_animation == 'sparkle':
+					params = lambda: current_brightness
+
 				prev_animation = curr_animation
-				gen = fn(strip, lambda: current_brightness)
+				gen = fn(strip, params)
 				
 			next(gen)
 		# sparkle(strip, get_current_brightness=lambda: current_brightness)
