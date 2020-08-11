@@ -18,7 +18,7 @@ def rojava(strip):
 		strip.show()
 
 def strobe(strip):
-   while True:
+	while True:
 		fill(strip, Color(255,255,255))
 		fill(strip, Color(0,0,0))
 		time.sleep(1/11)
