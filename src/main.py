@@ -8,6 +8,7 @@ from src import curr_animations
 
 from src.helpers import clear, getPixels
 from .star_light import sparkle
+from .trains import trains
 
 # LED strip configuration:
 LED_COUNT      = 300     # Number of LED pixels.
