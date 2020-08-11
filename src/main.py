@@ -43,6 +43,7 @@ def run():
 		while True:
 
 			if curr_animation  != prev_animation:
+				print('animation changed', file=sys.stderr)
 				fn = animations[curr_animation]['fn']
 				# params = animations[curr_animation]['params']
 				params = None
@@ -51,7 +52,6 @@ def run():
 
 				prev_animation = curr_animation
 				gen = fn(strip, params)
-				print('animation changed', file=sys.stderr)
 				
 			next(gen)
 		# sparkle(strip, get_current_brightness=lambda: current_brightness)

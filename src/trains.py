@@ -56,6 +56,8 @@ def ride_trains(strip, null=None):
         strip.setPixelColor(i + LEFT, color)
     strip.show()
 
+    yield
+
     #if (datetime.now() - strobe_counter).total_seconds() > interval:
     #    interval = random.randint(3, 60)
     #    strobe_counter = datetime.now()
