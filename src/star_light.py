@@ -20,15 +20,15 @@ def sparkle_brightness(t):
 def make_sparkle_cache(n):
   def _sparkle(base_color):
     sparkle_cache = np.array([
-        sparkle_brightness(t)
-        for t in np.arange(0, 50, 1/5)
-      ])
+			sparkle_brightness(t)
+			for t in np.arange(0, 50, 1/5)
+		])
 
     # sparkle_cache = 4**sparkle_cache
 
     sparkle_cache /= max(sparkle_cache)
 
-		curr_brightness = strip.getBrightness()
+    curr_brightness = strip.getBrightness()
     min_sparkle = (curr_brightness*2)/255
     min_sparkle = 100/255
     sparkle_cache += min_sparkle
