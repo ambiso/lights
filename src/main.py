@@ -44,7 +44,7 @@ def run():
 
 			if curr_animation  != prev_animation:
 				fn = animations[curr_animation]['fn']
-				print('animation changed {} with function {}'.format(curr_animation, fn.__name__))
+				print(f'animation changed {curr_animation} with function {fn.__name__}')
 				# params = animations[curr_animation]['params']
 				params = None
 				if curr_animation == 'sparkle':
