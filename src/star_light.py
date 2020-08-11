@@ -6,7 +6,6 @@ import numpy as np
 from rpi_ws281x import Color
 
 from .helpers import *
-from .main import curr_brightness
 
 
 def sparkle_brightness(t):
@@ -18,7 +17,7 @@ def sparkle_brightness(t):
 		return 1/(1+exp(-(2*t-17)))
 	return _f(t) * _g(t)
 
-def make_sparkle_cache(n):
+def make_sparkle_cache(n, curr_brightness):
 	def _sparkle(base_color):
 		sparkle_cache = np.array([
 			sparkle_brightness(t)
@@ -49,7 +48,7 @@ def sparkle(strip):
 
 	n = 100
 	slowness = 200
-	sparkle_cache = make_sparkle_cache(n)
+	sparkle_cache = make_sparkle_cache(n, strip.getBrightness())
 	t = 0
 	fill(strip, sparkle_cache[t // slowness][-1])
 
