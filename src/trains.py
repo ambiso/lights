@@ -25,9 +25,7 @@ def ride_trains(strip, null=None):
 
   class Train:
     def __init__(self):
-      #self.color_provider = cycle_01(random.uniform(0., 1.), random.uniform(0.00001, .0001))
-      from .helpers import const
-      self.color_provider = const(random.choice([0., 1/3, 2/3]))
+      self.color_provider = cycle_01(random.uniform(0., 1.), random.uniform(0.00001, .0001))
       self.width = random.randint(15, 30)
       if random.uniform(0., 1.) > .5:
         self.speed = random.uniform(.5, 1.7)
