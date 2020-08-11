@@ -15,4 +15,4 @@ jobs:
                     ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
                     echo "${{ secrets.SSH_TARGET }}" >> ~/.ssh/config
                     ssh target 'rm -r "${{ secrets.SSH_TARGET_DIR }}/"*'
-                    rsync src main.py static templates target:"${{ secrets.SSH_TARGET_DIR }}" -rv
+                    rsync src main.py static target:"${{ secrets.SSH_TARGET_DIR }}" -rv
