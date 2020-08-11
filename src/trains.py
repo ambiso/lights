@@ -27,10 +27,10 @@ def ride_trains(strip, null=None):
     def __init__(self):
       self.color_provider = cycle_01(random.uniform(0., 1.), random.uniform(0.00001, .0001))
       self.width = random.randint(15, 30)
-      if random.uniform(0., 1.) > .5:
-        self.speed = random.uniform(.5, 1.7)
-      else:
-        self.speed = random.uniform(-1.7, -.5)
+      # if random.uniform(0., 1.) > .5:
+      self.speed = random.uniform(.5, 1.7)
+      # else:
+      #   self.speed = random.uniform(-1.7, -.5)
       self.position = random.randint(0, RIGHT-LEFT)
 
     def draw(self, vstrip):
