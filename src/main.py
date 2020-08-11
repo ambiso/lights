@@ -8,7 +8,6 @@ from math import sin, pi, exp, floor, ceil
 from datetime import datetime
 
 from src import app
-from src.star_light import sparkle
 from src.helpers import *
 from src import animations
 
