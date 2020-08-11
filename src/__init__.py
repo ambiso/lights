@@ -18,4 +18,5 @@ animations = {
         'params': {
 
         }
+    }
 }
