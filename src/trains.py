@@ -1,6 +1,7 @@
 import random
-
 from math import exp
+
+from .helpers import gen_color_map
 
 def cycle_01(x, delta):
   while True:
