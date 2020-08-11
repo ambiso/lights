@@ -57,7 +57,8 @@ def run():
 
 			for s in vstrip:
 				for i, c in enumerate(s):
-					strip.setPixelColorRGB(i, c.r, c.g, c.b)
+					if not (c.r == 0 and c.g == 0 and c.b == 0):
+						strip.setPixelColorRGB(i, c.r, c.g, c.b)
 			
 			strip.show()
 	
