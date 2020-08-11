@@ -2,7 +2,7 @@ import itertools
 import numpy as np
 import colorsys
 
-from rpi_ws281x import Color
+from rpi_ws281x import Color, PixelStrip
 
 def fill(strip, color):
   for i in range(strip.numPixels()):
@@ -56,3 +56,13 @@ def const(value):
   while True:
     yield value
 
+
+def getPixels(strip: PixelStrip):
+  num_pixels = strip.numPixels()
+  all_pixels = []
+  for i in range(num_pixels):
+    color = strip.getPixelColor(i)
+    all_pixels.append(color)
+
+  return all_pixels
+  
