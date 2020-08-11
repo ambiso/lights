@@ -38,12 +38,15 @@ def run():
 	threading.Thread(target=app.run).start()
 	print('Press Ctrl-C to quit.')
 	try:
-		fn = animations[curr_animation]['fn']
-		# params = animations[curr_animation]['params']
-		params = None
-		if curr_animation == 'sparkle':
-			params = lambda: current_brightness
-		fn(strip, lambda: current_brightness)
+		while True:
+			fn = animations[curr_animation]['fn']
+			# params = animations[curr_animation]['params']
+			params = None
+			if curr_animation == 'sparkle':
+				params = lambda: current_brightness
+
+			gen = fn(strip, lambda: current_brightness)
+			next(gen)
 		# sparkle(strip, get_current_brightness=lambda: current_brightness)
 	except KeyboardInterrupt:
 		clear(strip)
