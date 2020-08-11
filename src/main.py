@@ -44,12 +44,11 @@ def run():
 				prev_brightness = curr_brightness
 				
 			
-			t0 = time.perf_counter()
 			next(gen)
-			print(round(time.perf_counter() - t0, 4))
-			# t1 = time.perf_counter()
+			
+			t0 = time.perf_counter()
 			pixels = getPixels(strip)
-			# print(round(time.perf_counter() - t1, 4))
+			print(round(time.perf_counter() - t0, 4))
 			
 			# print(dir(strip.getPixels()))
 	except KeyboardInterrupt:
