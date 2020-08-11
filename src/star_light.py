@@ -6,6 +6,7 @@ import numpy as np
 from rpi_ws281x import Color
 
 from .helpers import *
+from .main import curr_brightness
 
 
 def sparkle_brightness(t):
@@ -28,7 +29,6 @@ def make_sparkle_cache(n):
 
     sparkle_cache /= max(sparkle_cache)
 
-    curr_brightness = strip.getBrightness()
     min_sparkle = (curr_brightness*2)/255
     min_sparkle = 100/255
     sparkle_cache += min_sparkle
@@ -56,7 +56,7 @@ def sparkle(strip):
   def _rst():
     non_sparkles = set(range(strip.numPixels())) - set(a[0] for a in sparkles)
     for pos in non_sparkles:
-      strip.setPixelColor(pos, sparkle_cache[t // slowness][-1])
+			strip.setPixelColor(pos, sparkle_cache[t // slowness][-1])
 
   while True:
 
