@@ -32,14 +32,18 @@ LED_STRIP      = ws.WS2811_STRIP_GRB
 current_brightness = 1.
 curr_animation = 'sparkle'
 def run():
-    strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
-    strip.begin()
+	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
+	strip.begin()
 
-    threading.Thread(target=app.run).start()
-    print('Press Ctrl-C to quit.')
-    try:
-        # if curr_animation == 'sparkle':
-        animations[curr_animation]['fn'](strip, get_current_brightness=lambda: current_brightness)
-        # sparkle(strip, get_current_brightness=lambda: current_brightness)
-    except KeyboardInterrupt:
-        clear(strip)
+	threading.Thread(target=app.run).start()
+	print('Press Ctrl-C to quit.')
+	try:
+		fn = animations[curr_animation]['fn']
+		# params = animations[curr_animation]['params']
+		params = None
+		if curr_animation == 'sparkle':
+			params = lambda: current_brightness
+		fn(strip, lambda: current_brightness)
+		# sparkle(strip, get_current_brightness=lambda: current_brightness)
+	except KeyboardInterrupt:
+		clear(strip)
