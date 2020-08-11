@@ -40,12 +40,12 @@ def run():
 
 			if curr_animation != prev_animation:
 				fn = animations[curr_animation]['fn']
-				print('animation changed {} with function {}'.format(curr_animation, fn.__name__))
+				print('animation changed {} with function {}'.format(prev_animation, curr_animation))
 				prev_animation = curr_animation
 				clear(strip)
 				gen = fn(strip)
 			if current_brightness != prev_brightness:
-				strip.brightness = int(255 * current_brightness)
+				strip.setBrightness(int(255 * current_brightness))
 				prev_brightness = current_brightness
 				
 			next(gen)
