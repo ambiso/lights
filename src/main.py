@@ -38,9 +38,9 @@ def run():
 		while True:
 			if len(curr_animations) != len_animations:
 				len_animations = len(curr_animations)
-				fn = animations[curr_animation]
 				clear(strip)
 
+				generators = []
 				for animation in curr_animations:
 					generators.append(animation(strip))
 			
