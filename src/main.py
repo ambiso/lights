@@ -1,7 +1,7 @@
 import threading
 
 
-from rpi_ws281x import Adafruit_NeoPixel
+from rpi_ws281x import Adafruit_NeoPixel, ws
 
 from src import app
 from src import animations
