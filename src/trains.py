@@ -45,7 +45,7 @@ def ride_trains(strip):
       self.position += self.speed
       self.position %= len(vstrip)
 
-  trains = [Train() for _ in range(8)]
+  trains = [Train() for _ in range(1)]
   #strobe_counter = datetime.now()
   #interval = 0
   while True:
