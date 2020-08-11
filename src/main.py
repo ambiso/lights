@@ -21,7 +21,7 @@ LED_STRIP      = ws.WS2811_STRIP_GRB
 
 
 curr_brightness = int(0.05 * 255)
-curr_animation = 'trains'
+curr_animation = 'sparkle'
 def run():
 	prev_animation = None
 	prev_brightness = None
