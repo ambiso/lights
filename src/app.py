@@ -26,7 +26,7 @@ def set_brightness(brightness):
 @app.route('/animation/<animation>', methods=['POST'])
 def set_animation(animation):
     main.curr_animation = animation
-    return json.dumps({"sucess": True, "animation": b}, separators=(",", ":"))
+    return json.dumps({"sucess": True, "animation": animation}, separators=(",", ":"))
 
 def run():
     app.run(host="0.0.0.0", port=1337)
