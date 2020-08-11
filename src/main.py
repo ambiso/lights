@@ -1,5 +1,6 @@
 import time
 import threading
+import sys
 
 from neopixel import *
 
@@ -50,6 +51,7 @@ def run():
 
 				prev_animation = curr_animation
 				gen = fn(strip, params)
+				print('animation changed', file=sys.stderr)
 				
 			next(gen)
 		# sparkle(strip, get_current_brightness=lambda: current_brightness)
