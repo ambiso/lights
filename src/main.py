@@ -25,7 +25,6 @@ curr_brightness = int(0.05 * 255)
 curr_animations = [sparkle, trains]
 generators = []
 
-len_animations = len(curr_animations)
 def run():
 	prev_animation = None
 	prev_brightness = None
@@ -34,6 +33,7 @@ def run():
 
 	threading.Thread(target=app.run).start()
 	print('Press Ctrl-C to quit.')
+	len_animations = len(curr_animations)
 	try:
 		while True:
 			if len(curr_animations) != len_animations:
