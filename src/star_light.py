@@ -28,7 +28,9 @@ def make_sparkle_cache(n):
 
     sparkle_cache /= max(sparkle_cache)
 
-    min_sparkle = 10/255
+		curr_brightness = strip.getBrightness()
+    min_sparkle = (curr_brightness*2)/255
+    min_sparkle = 100/255
     sparkle_cache += min_sparkle
     sparkle_cache[-1] = min_sparkle
     sparkle_cache = min(sparkle_cache) + (sparkle_cache - min(sparkle_cache))/(max(sparkle_cache) - min(sparkle_cache)) * (1. - min(sparkle_cache))
