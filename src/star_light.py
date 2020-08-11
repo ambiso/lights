@@ -62,7 +62,18 @@ def sparkle(strip):
 			pos = random.randint(0, strip.numPixels())
 			sparkle = [pos, 0]
 			if not any(map(lambda x: x[0] == pos, sparkles)):
-				sparkles.append(sparkle)
+				i = 0
+				for spark in sparkles:
+					curr_pos = spark[0]
+					i += 1
+					if curr_pos > pos:
+						break
+				prev_pos = sparkles[i-1][0]
+				next_pos = sparkles[i+1][0]
+				min_distance = 1
+				if pos - prev_pos < min_distance and next_pos - pos > min_distance:
+					sparkles.insert(i, sparkle)
+					
 
 		#if n % slowness == 0:
 			#_rst()
