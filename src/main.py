@@ -44,6 +44,6 @@ def run():
 				prev_brightness = curr_brightness
 				
 			next(gen)
-			print(strip.getPixels())
+			print(dir(strip.getPixels()))
 	except KeyboardInterrupt:
 		clear(strip)
