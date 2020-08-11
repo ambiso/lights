@@ -4,9 +4,6 @@ import colorsys
 
 from rpi_ws281x import Color
 
-
-from rpi_ws281x import Color
-
 def fill(strip, color):
   for i in range(strip.numPixels()):
     strip.setPixelColor(i, color)
