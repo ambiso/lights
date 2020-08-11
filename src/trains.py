@@ -64,7 +64,10 @@ def ride_trains(strip, null=None):
         for i in range(len(col)):
           col[i] = min(col[i], 255)
         print(col)
+        print(type(col))
+        print(type(col[0]))
         color = Color(*col)
+        print(color)
         strip.setPixelColor(i + LEFT, color)
     strip.show()
 
