@@ -43,7 +43,7 @@ def run():
 		while True:
 
 			if curr_animation  != prev_animation:
-				print(f'animation changed {curr_animation} with function {fn.__name__}')
+				print('animation changed {} with function {}'.format(curr_animation, fn.__name__))
 				fn = animations[curr_animation]['fn']
 				# params = animations[curr_animation]['params']
 				params = None
