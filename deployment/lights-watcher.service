@@ -1,0 +1,11 @@
+[Unit]
+Description=lights restarter
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/systemctl restart lights.service
+
+[Install]
+WantedBy=multi-user.target
+

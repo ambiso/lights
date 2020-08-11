@@ -1,0 +1,11 @@
+[Unit]
+Description=turn the lights on
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/lights/lights/main.py
+User=lights
+WorkingDirectory=/home/lights/lights
+
+[Install]
+WantedBy=multi-user.target

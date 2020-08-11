@@ -1,0 +1,9 @@
+[Unit]
+Description=Logs Socket
+
+[Socket]
+ListenStream=0.0.0.0:62337
+Accept=yes
+
+[Install]
+WantedBy=sockets.target

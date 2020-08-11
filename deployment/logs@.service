@@ -1,0 +1,14 @@
+[Unit]
+Description=Logs Service
+Requires=logs.socket
+
+[Service]
+Type=simple
+ExecStart=/bin/sh /home/pi/lights_log.sh
+StandardInput=socket
+StandardError=journal
+TimeoutStopSec=5
+#RuntimeMaxSec=10
+
+[Install]
+WantedBy=multi-user.target
