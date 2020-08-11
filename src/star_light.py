@@ -59,7 +59,7 @@ def sparkle(strip):
 	min_distance = 2
 	while True:
 
-		if len(sparkles) < 200 and random.random() < 0.2:
+		if random.random() < 0.4:
 
 			all_sparkles = set(range(strip.numPixels()))
 			no_sparkles = set(a[0] + d for a in sparkles for d in range(-min_distance, min_distance))
@@ -70,8 +70,8 @@ def sparkle(strip):
 				sparkle = [random.choice(list(possible_locations)), 0]
 				sparkles.append(sparkle)
 
-		#if n % slowness == 0:
-			#_rst()
+		if n % slowness == 0:
+			_rst()
 
 		for a in sparkles:
 			strip.setPixelColor(a[0], sparkle_cache[t // slowness][a[1]])
