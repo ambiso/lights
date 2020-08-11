@@ -48,6 +48,7 @@ def run():
 					params = lambda: current_brightness
 
 				prev_animation = curr_animation
+				clear(strip)
 				gen = fn(strip, params)
 				
 			next(gen)
