@@ -25,7 +25,7 @@ LED_STRIP      = ws.WS2811_STRIP_GRB
 #LED_STRIP      = ws.SK6812W_STRIP
 
 
-current_brightness = 1.
+current_brightness = 0.2
 curr_animation = 'trains'
 def run():
 	prev_animation = None
