@@ -33,7 +33,7 @@ def run():
 
 	threading.Thread(target=app.run).start()
 	print('Press Ctrl-C to quit.')
-	len_animations = len(curr_animations)
+	len_animations = None
 	try:
 		while True:
 			if len(curr_animations) != len_animations:
