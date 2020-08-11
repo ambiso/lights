@@ -2,6 +2,6 @@ from src.random_animations import strobe
 from src.star_light import sparkle
 from src.trains import trains
 
-curr_animations = {
+animations = {
     fn.__name__: fn for fn in [strobe, trains, sparkle]
 }
