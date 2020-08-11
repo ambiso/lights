@@ -1,6 +1,8 @@
 import random
 from math import exp
 
+import numpy as np
+
 from .helpers import gen_color_map
 
 def cycle_01(x, delta):
