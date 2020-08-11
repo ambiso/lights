@@ -59,7 +59,7 @@ def sparkle(strip):
 	min_distance = 3
 	while True:
 
-		if len(sparkles) < 30 and random.random() < 0.1:
+		if len(sparkles) < 50 and random.random() < 0.02:
 
 			all_sparkles = set(range(strip.numPixels()))
 			no_sparkles = set(a[0] + d for a in sparkles for d in range(-min_distance, min_distance + 1))
