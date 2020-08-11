@@ -4,7 +4,7 @@ import time
 from rpi_ws281x import PixelStrip, ws
 
 from src import app
-from src import curr_animations
+from src import animations
 
 from src.helpers import clear, getPixels
 from .star_light import sparkle
