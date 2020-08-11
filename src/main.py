@@ -3,8 +3,6 @@ import threading
 
 from neopixel import *
 
-import colorsys
-import numpy as np
 import random
 from math import sin, pi, exp, floor, ceil
 from datetime import datetime
