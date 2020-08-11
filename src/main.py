@@ -39,7 +39,7 @@ def run():
 		while True:
 
 			if curr_animation != prev_animation:
-				fn = animations[curr_animation]['fn']
+				fn = animations[curr_animation]
 				print('animation changed {} with function {}'.format(prev_animation, curr_animation))
 				prev_animation = curr_animation
 				clear(strip)
@@ -49,6 +49,5 @@ def run():
 				prev_brightness = curr_brightness
 				
 			next(gen)
-		# sparkle(strip, get_current_brightness=lambda: current_brightness)
 	except KeyboardInterrupt:
 		clear(strip)
