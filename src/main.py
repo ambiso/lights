@@ -41,14 +41,12 @@ def run():
 			if curr_animation != prev_animation:
 				fn = animations[curr_animation]['fn']
 				print('animation changed {} with function {}'.format(curr_animation, fn.__name__))
-				# params = animations[curr_animation]['params']
+				prev_animation = curr_animation
+				clear(strip)
+				gen = fn(strip)
 			if current_brightness != prev_brightness:
 				strip.brightness = int(255 * current_brightness)
 				prev_brightness = current_brightness
-
-			prev_animation = curr_animation
-			clear(strip)
-			gen = fn(strip)
 				
 			next(gen)
 		# sparkle(strip, get_current_brightness=lambda: current_brightness)
