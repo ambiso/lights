@@ -13,8 +13,6 @@ from src.helpers import *
 from src import animations
 
 
-
-
 # LED strip configuration:
 LED_COUNT      = 300     # Number of LED pixels.
 LED_PIN        = 10      # GPIO pin connected to the pixels (must support PWM!).
@@ -31,6 +29,7 @@ current_brightness = 1.
 curr_animation = 'trains'
 def run():
 	prev_animation = None
+	prev_brightness = None
 	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
 	strip.begin()
 
@@ -39,17 +38,17 @@ def run():
 	try:
 		while True:
 
-			if curr_animation  != prev_animation:
+			if curr_animation != prev_animation:
 				fn = animations[curr_animation]['fn']
 				print('animation changed {} with function {}'.format(curr_animation, fn.__name__))
 				# params = animations[curr_animation]['params']
-				params = None
-				if curr_animation == 'sparkle':
-					params = lambda: current_brightness
+			if current_brightness != prev_brightness:
+				strip.brightness = int(255 * current_brightness)
+				prev_brightness = current_brightness
 
-				prev_animation = curr_animation
-				clear(strip)
-				gen = fn(strip, params)
+			prev_animation = curr_animation
+			clear(strip)
+			gen = fn(strip)
 				
 			next(gen)
 		# sparkle(strip, get_current_brightness=lambda: current_brightness)

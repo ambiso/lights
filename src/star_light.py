@@ -17,18 +17,7 @@ def sparkle_brightness(t):
         return 1/(1+exp(-(2*t-17)))
     return _f(t) * _g(t)
 
-def gen_color_map(n):
-    color_map = []
-    for i in range(n):
-        brightness_map = []
-        for j in range(n):
-            col = np.array(colorsys.hsv_to_rgb(i / n, 1, j / n))
-            col = np.array(col*255, dtype=np.int).tolist()
-            brightness_map.append(col)
-        color_map.append(brightness_map)
-    return color_map
-
-def make_sparkle_cache(n, brightness: float):
+def make_sparkle_cache(n):
     def _sparkle(base_color):
         sparkle_cache = np.array([
                 sparkle_brightness(t)
@@ -45,7 +34,7 @@ def make_sparkle_cache(n, brightness: float):
         sparkle_cache = min(sparkle_cache) + (sparkle_cache - min(sparkle_cache))/(max(sparkle_cache) - min(sparkle_cache)) * (brightness - min(sparkle_cache))
 
         sparkle_cache = [
-            Color(*np.array(np.array(base_color) * brightness, dtype=np.int).tolist())
+            np.array(np.array(base_color), dtype=np.int).tolist()
             for brightness in sparkle_cache
         ]
         return sparkle_cache
@@ -53,13 +42,12 @@ def make_sparkle_cache(n, brightness: float):
             np.array(colorsys.hsv_to_rgb(i / (n-1), 1, 1)) * 255
     ) for i in range(n)]
 
-def sparkle(strip, get_current_brightness = lambda: 1.):
+def sparkle(strip):
     sparkles = [] # (pos, time)
 
     n = 100
     slowness = 1000
-    last_brightness = get_current_brightness()
-    sparkle_cache = make_sparkle_cache(n, last_brightness)
+    sparkle_cache = make_sparkle_cache(n)
     t = 0
     fill(strip, sparkle_cache[t // slowness][-1])
 
@@ -69,7 +57,6 @@ def sparkle(strip, get_current_brightness = lambda: 1.):
             strip.setPixelColor(pos, sparkle_cache[t // slowness][-1])
 
     while True:
-        new_brightness = get_current_brightness()
 
         if len(sparkles) < 200 and random.random() < 0.9:
             pos = random.randint(0, strip.numPixels())
@@ -77,10 +64,6 @@ def sparkle(strip, get_current_brightness = lambda: 1.):
             if not any(map(lambda x: x[0] == pos, sparkles)):
                 sparkles.append(sparkle)
 
-        if new_brightness != last_brightness:
-            print('brightness changed')
-            last_brightness = new_brightness
-            sparkle_cache = make_sparkle_cache(n, new_brightness)
         if n % slowness == 0:
             _rst()
 

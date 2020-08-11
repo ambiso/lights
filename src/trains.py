@@ -16,7 +16,7 @@ def cycle_01(x, delta):
     x %= 1.
     yield x
     
-def ride_trains(strip, null=None):
+def ride_trains(strip):
 
   color_map = gen_color_map(100)
 
