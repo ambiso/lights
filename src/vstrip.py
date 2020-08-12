@@ -13,3 +13,6 @@ class VStrip:
 	def getPixelColor(self, i):
 		return self.strip[i]
 
+	def show(self):
+		pass
+
