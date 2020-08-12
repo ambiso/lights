@@ -69,7 +69,7 @@ def run():
 			
 			strip.show()
 			b = time.perf_counter()
-			print(b - a)
+			print(b - a, file=sys.stderr)
 			a = b
 
 	
