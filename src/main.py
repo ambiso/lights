@@ -63,7 +63,7 @@ def run():
 					col += cur_col[:3] * transparency
 					transparency *= cur_col[3]
 
-				col = np.minimum(col, np.array(np.floor(255), dtype=np.int))
+				col = np.minimum(np.array(np.floor(col), dtype=np.int), 255)
 				strip.setPixelColor(pos, Color(*col.tolist()))
 			
 			strip.show()
