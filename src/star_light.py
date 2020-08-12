@@ -76,7 +76,7 @@ def sparkle(strip):
 		for a in sparkles:
 			strip.setPixelColor(a[0], sparkle_cache[t // slowness][a[1]])
 			a[1] += 1
-		strip.show()
+		# strip.show()
 
 		yield
 		sparkles = [[pos, time] for pos, time in sparkles if time < len(sparkle_cache[t // slowness])]

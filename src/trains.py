@@ -16,7 +16,7 @@ def cycle_01(x, delta):
     x %= 1.
     yield x
     
-def ride_trains(strip):
+def trains(strip):
 
   color_map = gen_color_map(100)
 
@@ -64,19 +64,6 @@ def ride_trains(strip):
           col[j] = min(col[j], 255)
         color = Color(*col)
         strip.setPixelColor(i + LEFT, color)
-    strip.show()
+    # strip.show()
 
     yield
-
-    #if (datetime.now() - strobe_counter).total_seconds() > interval:
-    #    interval = random.randint(3, 60)
-    #    strobe_counter = datetime.now()
-    #    strobe(strip, random.randint(2, 7))
-    #for i in range(LEFT, RIGHT+1):
-      #color = next(color_provider)
-      #for j in range(width):
-        #strip.setPixelColor(reduce_rl(i + j), color)
-      #strip.show()
-      #strip.setPixelColor(i, 0)
-      #strip.setPixelColor(reduce_rl(i+j+1), 0)
-      #time.sleep(wait_ms/1000.0)

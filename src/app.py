@@ -17,15 +17,21 @@ def set_brightness(brightness):
 	b = int(brightness)
 	if 0 <= b <= 255:
 		main.curr_brightness = b
-		return json.dumps({"sucess": True, "brightness": b}, separators=(",", ":"))
+		return json.dumps({"sucess": True, "brightness": b})
 	else:
 		return json.dumps({"sucess": False})
 
 
 @app.route('/animation/<animation>', methods=['POST'])
-def set_animation(animation):
-	main.curr_animation = animation
-	return json.dumps({"sucess": True, "animation": animation}, separators=(",", ":"))
+def toggle_animation(animation):
+	if animation not in animations:
+		return json.dumps({"sucess": False})
+	anim_fn = animations[animation]
+	if anim_fn in main.curr_animations:
+		main.curr_animations.remove(anim_fn)
+	else:
+		main.curr_animations.append(animations[animation])
+	return json.dumps({"sucess": True, "animation": [fn.__name__ for fn in main.curr_animations]})
 
 def run():
 	app.run(host="0.0.0.0", port=1337)

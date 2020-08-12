@@ -1,9 +1,7 @@
 from src.random_animations import strobe
 from src.star_light import sparkle
-from src.trains import ride_trains
+from src.trains import trains
 
 animations = {
-    'strobe': strobe,
-    'sparkle': sparkle,
-    'trains':ride_trains,
+    fn.__name__: fn for fn in [strobe, trains, sparkle]
 }
