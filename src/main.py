@@ -28,9 +28,9 @@ def run():
 	strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
 	strip.begin()
 	for i in range(LED_COUNT):
-		strip.setPixel(i, Color(0, 0, 255))
+		strip.setPixelColor(i, Color(0, 0, 255))
 		if i > 0:
-			strip.setPixel(i, Color(0, 0, 0))
+			strip.setPixelColor(i, Color(0, 0, 0))
 		strip.show()
 
 
