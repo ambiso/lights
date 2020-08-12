@@ -1,7 +1,7 @@
 import threading
 import time
 
-from rpi_ws281x import PixelStrip, ws
+from rpi_ws281x import PixelStrip, ws, Color
 
 from src import app
 from src import animations
@@ -27,6 +27,12 @@ def run():
 	prev_brightness = None
 	strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
 	strip.begin()
+	for i in range(LED_COUNT):
+		strip.setPixel(i, Color(0, 0, 255))
+		if i > 0:
+			strip.setPixel(i, Color(0, 0, 0))
+		strip.show()
+
 
 	threading.Thread(target=app.run).start()
 	print('Press Ctrl-C to quit.')
