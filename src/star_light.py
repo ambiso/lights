@@ -43,8 +43,8 @@ def make_sparkle_cache(n):
 def sparkle(strip):
 	sparkles = [] # (pos, time)
 
-	n = 10
-	slowness = 1000
+	n = 100
+	slowness = 500
 	sparkle_cache = make_sparkle_cache(n)
 	t = 0
 	fill(strip, sparkle_cache[t // slowness][-1])
@@ -79,4 +79,4 @@ def sparkle(strip):
 		yield
 		sparkles = [[pos, time] for pos, time in sparkles if time < len(sparkle_cache[t // slowness])]
 		t += 1
-		t %= n * slowness
+		t %= n
