@@ -3,7 +3,6 @@ from math import exp
 import colorsys
 
 import numpy as np
-from rpi_ws281x import Color
 
 from .helpers import *
 

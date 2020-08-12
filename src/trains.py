@@ -55,7 +55,7 @@ def trains(strip):
 
     for i, colors in enumerate(vstrip):
       if len(colors) == 0:
-        strip.setPixelColor(i + LEFT, Color(0,0,0))
+        strip.setPixelColor(i + LEFT, [0,0,0,1])
       else:
         col = [color_map[floor(hue * (len(color_map)-1))][floor(val * (len(color_map)-1))] for (hue, val) in colors]
         transparency = 1-sum(val for (hue, val) in colors)
