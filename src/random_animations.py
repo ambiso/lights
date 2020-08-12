@@ -28,7 +28,7 @@ def strobe(strip):
 		time.sleep(1/11)
 		#time.sleep(1/(((sin(i/10) + 1)/2 * 3) + 4))
 		#time.sleep((sin(i/10) + 1)/2 * 0.2)
-		yield
+		yield strip
 		
 def stack(strip, color_provider, wait_ms=10):
 	clear(strip)

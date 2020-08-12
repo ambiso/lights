@@ -2,6 +2,7 @@ import threading
 import time
 
 from rpi_ws281x import PixelStrip, ws, Color
+import numpy as np
 
 from src import app
 from src import animations
@@ -9,6 +10,7 @@ from src import animations
 from src.helpers import clear, getPixels
 from .star_light import sparkle
 from .trains import trains
+from .vstrip import VStrip
 
 # LED strip configuration:
 LED_COUNT      = 300     # Number of LED pixels.
@@ -42,23 +44,27 @@ def run():
 
 				generators = []
 				for animation in curr_animations:
-					generators.append(animation(strip))
+					generators.append(animation(VStrip(strip)))
 			
 			if curr_brightness != prev_brightness:
 				strip.setBrightness(curr_brightness)
 				prev_brightness = curr_brightness
 				
-			vstrip = []
+			vstrips = []
 			for gen in generators:
-				next(gen)
-				pixels = getPixels(strip)
-				vstrip.append(pixels)
+				vstrips.append(next(gen))
 				# vstrip.reverse()
 
-			for s in vstrip:
-				for i, c in enumerate(s):
-					if not (c.r == 0 and c.g == 0 and c.b == 0):
-						strip.setPixelColorRGB(i, c.r, c.g, c.b)
+			for pos in strip.numPixels():
+				col = np.array([0, 0, 0])
+				transparency = 1
+				for v in vstrips:
+					cur_col = np.array(v.getPixelColor(pos))
+					col += cur_col[:3] * transparency
+					transparency *= cur_col[3]
+
+				col = np.minimum(col, 255)
+				strip.setPixelColor(Color(*col.tolist()))
 			
 			strip.show()
 	
