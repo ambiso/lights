@@ -36,6 +36,7 @@ def run():
 	threading.Thread(target=app.run).start()
 	print('Press Ctrl-C to quit.')
 	len_animations = None
+	a = time.perf_counter()
 	try:
 		while True:
 			if len(curr_animations) != len_animations:
@@ -67,6 +68,10 @@ def run():
 				strip.setPixelColor(pos, Color(*col.tolist()))
 			
 			strip.show()
+			b = time.perf_counter()
+			print(b - a)
+			a = b
+
 	
 	except KeyboardInterrupt:
 		clear(strip)
