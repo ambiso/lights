@@ -64,8 +64,8 @@ def sparkle(strip):
 			if not any(map(lambda x: x[0] == pos, sparkles)):
 				sparkles.append(sparkle)
 
-		if n % slowness == 0:
-			_rst()
+		#if n % slowness == 0:
+			#_rst()
 
 		for a in sparkles:
 			strip.setPixelColor(a[0], sparkle_cache[t // slowness][a[1]])
