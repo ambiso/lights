@@ -30,7 +30,7 @@ def run():
 	for i in range(LED_COUNT):
 		strip.setPixelColor(i, Color(0, 0, 255))
 		if i > 0:
-			strip.setPixelColor(i, Color(0, 0, 0))
+			strip.setPixelColor(i-1, Color(0, 0, 0))
 		strip.show()
 
 
