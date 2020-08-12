@@ -56,14 +56,14 @@ def run():
 				# vstrip.reverse()
 
 			for pos in range(strip.numPixels()):
-				col = np.array([0, 0, 0])
+				col = np.array([0., 0., 0.])
 				transparency = 1
 				for v in vstrips:
 					cur_col = np.array(v.getPixelColor(pos))
 					col += cur_col[:3] * transparency
 					transparency *= cur_col[3]
 
-				col = np.minimum(col, 255)
+				col = np.floor(np.minimum(col, 255))
 				strip.setPixelColor(pos, Color(*col.tolist()))
 			
 			strip.show()
