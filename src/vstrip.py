@@ -5,6 +5,8 @@ class VStrip:
 		self.strip = [(0, 0, 0, 0) for _ in range(strip.numPixels())]
 
 	def setPixelColor(self, i, color):
+		if len(color) < 4:
+			raise Exception("invalid color")
 		self.strip[i] = color
 
 	def numPixels(self):
