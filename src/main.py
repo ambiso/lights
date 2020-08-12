@@ -29,12 +29,12 @@ def run():
 	strip.begin()
 	for i in range(LED_COUNT):
 		import time
-		a = time.now()
+		a = time.time()
 		strip.setPixelColor(i, Color(0, 0, 255))
 		if i > 0:
 			strip.setPixelColor(i-1, Color(0, 0, 0))
 		strip.show()
-		b = time.now()
+		b = time.time()
 		print(b - a)
 
 
