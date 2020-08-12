@@ -79,4 +79,4 @@ def sparkle(strip):
 		yield
 		sparkles = [[pos, time] for pos, time in sparkles if time < len(sparkle_cache[t // slowness])]
 		t += 1
-		t %= n
+		t %= n * slowness
