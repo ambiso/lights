@@ -38,9 +38,7 @@ def make_sparkle_cache(n):
 			for brightness in sparkle_cache
 		]
 		return sparkle_cache
-	return [_sparkle(
-			np.array(colorsys.hsv_to_rgb(i / (n-1), 1, 1)) * 255
-	) for i in range(n)]
+	return [_sparkle(np.array(colorsys.hsv_to_rgb(i / (n-1), 1, 1)) * 255) for i in range(n)]
 
 def sparkle(strip):
 	sparkles = [] # (pos, time)
@@ -70,8 +68,8 @@ def sparkle(strip):
 				sparkle = [random.choice(list(possible_locations)), 0]
 				sparkles.append(sparkle)
 
-		if n % slowness == 0:
-			_rst()
+		# if n % slowness == 0:
+		_rst()
 
 		for a in sparkles:
 			strip.setPixelColor(a[0], sparkle_cache[t // slowness][a[1]])
