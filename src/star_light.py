@@ -17,7 +17,7 @@ def sparkle_brightness(t):
 		return 1/(1+exp(-(2*t-17)))
 	return _f(t) * _g(t)
 
-def make_sparkle_cache(n, curr_brightness):
+def make_sparkle_cache(n):
 	def _sparkle(base_color):
 		sparkle_cache = np.array([
 			sparkle_brightness(t)
@@ -28,8 +28,7 @@ def make_sparkle_cache(n, curr_brightness):
 
 		sparkle_cache /= max(sparkle_cache)
 
-		min_sparkle = (curr_brightness*2)/255
-		min_sparkle = 100/255
+		min_sparkle = 10/255
 		sparkle_cache += min_sparkle
 		sparkle_cache[-1] = min_sparkle
 		sparkle_cache = min(sparkle_cache) + (sparkle_cache - min(sparkle_cache))/(max(sparkle_cache) - min(sparkle_cache)) * (1. - min(sparkle_cache))
@@ -48,7 +47,7 @@ def sparkle(strip):
 
 	n = 100
 	slowness = 200
-	sparkle_cache = make_sparkle_cache(n, strip.getBrightness())
+	sparkle_cache = make_sparkle_cache(n)
 	t = 0
 	fill(strip, sparkle_cache[t // slowness][-1])
 
@@ -77,3 +76,5 @@ def sparkle(strip):
 		sparkles = [[pos, time] for pos, time in sparkles if time < len(sparkle_cache[t // slowness])]
 		t += 1
 		t %= n * slowness
+
+#print(make_sparkle_cache(3))
