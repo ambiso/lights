@@ -55,7 +55,7 @@ def run():
 				vstrips.append(next(gen))
 				# vstrip.reverse()
 
-			for pos in strip.numPixels():
+			for pos in range(strip.numPixels()):
 				col = np.array([0, 0, 0])
 				transparency = 1
 				for v in vstrips:
