@@ -34,7 +34,7 @@ def make_sparkle_cache(n):
 		sparkle_cache = min(sparkle_cache) + (sparkle_cache - min(sparkle_cache))/(max(sparkle_cache) - min(sparkle_cache)) * (1. - min(sparkle_cache))
 
 		sparkle_cache = [
-			np.array(np.array(base_color) * brightness + [0], dtype=np.int).tolist()
+			np.array(np.array(base_color) * brightness, dtype=np.int).tolist() + [0]
 			for brightness in sparkle_cache
 		]
 		return sparkle_cache
