@@ -24,7 +24,7 @@ LED_STRIP      = ws.WS2811_STRIP_GRB
 #LED_STRIP      = ws.SK6812W_STRIP
 
 curr_brightness = int(0.05 * 255)
-curr_animations = [sparkle, trains]
+curr_animations = [trains, sparkle]
 generators = []
 
 def run():
