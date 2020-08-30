@@ -5,6 +5,7 @@ import sys
 from flask import Flask, request, render_template
 
 from src import main
+from . import animations
 
 app = Flask(__name__)
 
