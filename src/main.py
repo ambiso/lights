@@ -42,8 +42,6 @@ def run():
 			if curr_brightness != prev_brightness:
 				strip.setBrightness(curr_brightness)
 				prev_brightness = curr_brightness
-				
-			
 			next(gen)
 			
 			t0 = time.perf_counter()
