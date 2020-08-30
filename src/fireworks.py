@@ -13,6 +13,6 @@ def fireworks(strip):
 			strip.setPixelColor(pos, Color(v, v, v))
 		strip.show()
 		yield
-		t += 1.6
+		t += math.pi / 2
 		rem -= 0.01
 		rem = max(rem, 0)
