@@ -7,7 +7,7 @@ def fireworks(strip):
 	while True:
 		for pos in range(strip.numPixels()):
 			v = (math.sin(t) + 1) / 2 / t * 10
-			v = int(v)
+			v = int(v * 255)
 			strip.setPixelColor(pos, Color(v, v, v))
 		strip.show()
 		yield
