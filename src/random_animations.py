@@ -52,3 +52,19 @@ def rainbowCycle(strip, wait_ms=20):
 				strip.setPixelColor(i, Color(*col))
 			strip.show()
 			time.sleep(wait_ms/1000.0)
+
+
+def candy(strip):
+	while True:
+		for pos in range(strip.numPixels()):
+			r = random.uniform(0., 100.)
+			r = int(r * r / 100)
+			g = random.uniform(0., 100.)
+			g = int(g * g / 100)
+			b = random.uniform(0., 100.)
+			b = int(b * b / 100)
+			#r = int(math.sqrt(r * 100) * 2.55)
+
+			strip.setPixelColor(pos, Color(r, g, b))
+		strip.show()
+		yield

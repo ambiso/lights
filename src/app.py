@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-	return render_template("index.html", animation=main.curr_animation, brightness=main.curr_brightness)
+	return render_template("index.html", animations=animations.keys(), animation=main.curr_animation, brightness=main.curr_brightness)
 
 @app.route('/brightness/<brightness>', methods=['POST'])
 def set_brightness(brightness):
