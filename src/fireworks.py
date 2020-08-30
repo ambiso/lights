@@ -8,6 +8,6 @@ def fireworks(strip):
 			r = random.uniform(0., 100.)
 			r = int(r * r / 100)
 
-			strip.setPixelColor(pos, Color(r, g, b))
+			strip.setPixelColor(pos, Color(r, r, r))
 		strip.show()
 		yield

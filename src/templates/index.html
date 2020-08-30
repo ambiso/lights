@@ -6,7 +6,7 @@
 
 	<select name="animation" id="animation" onchange="change_animation()">
 		{% for anim in animations %}
-			<option value="{{anim}}" {% if animation == anim %} selected {% endif %} >{{anim}}</option>
+			<option value="{{anim}}" {% if animation == anim %} selected {% endif %}>{{anim}}</option>
 		{% endfor %}
 	</select>
 
