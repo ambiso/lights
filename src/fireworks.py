@@ -14,5 +14,5 @@ def fireworks(strip):
 		strip.show()
 		yield
 		t += 1.6
-		rem -= 0.001
+		rem -= 0.01
 		rem = max(rem, 0)
