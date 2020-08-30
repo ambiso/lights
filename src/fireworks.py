@@ -15,3 +15,4 @@ def fireworks(strip):
 		yield
 		t += 1.6
 		rem -= 0.001
+		rem = max(rem, 0)
