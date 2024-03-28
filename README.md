@@ -1,6 +1,6 @@
 Need to set up the PI:
 
-(Excerpt from [https://github.com/jgarff/rpi_ws281x/blob/3a20f1bdd740a144de180a07d8d3317920459d2d/README.md#spi](here))
+(Excerpt from [here](https://github.com/jgarff/rpi_ws281x/blob/3a20f1bdd740a144de180a07d8d3317920459d2d/README.md#spi))
 
 #### SPI
 
