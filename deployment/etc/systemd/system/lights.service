@@ -3,9 +3,9 @@ Description=turn the lights on
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 /home/lights/lights/main.py
-User=lights
-WorkingDirectory=/home/lights/lights
+ExecStart=/home/pi/lights/target/release/lights
+User=pi
+WorkingDirectory=/home/pi/lights
 
 [Install]
 WantedBy=multi-user.target
